@@ -1,0 +1,41 @@
+.preview {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 30;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.75);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.preview.invisible {
+    display: none;
+}
+
+.preview button.closePreview {
+    display: flex;
+    cursor: pointer;
+    font-size: 2rem;
+    outline: none;
+    border:none;
+    width: 3rem;
+    height: 3rem;
+    position: fixed;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: #fff;
+    background-color: rgba(0,0,0,0);
+    transition: all .25s;
+}
+.preview button.closePreview:hover {
+    color: #ff5b5b;
+}
+
+.preview .previewContainer {
+    max-width: 90vw;
+    max-height: calc((100vh - 4rem) * 0.8);
+    overflow: auto;
+}

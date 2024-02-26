@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>上传数据</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <link rel="stylesheet" href="{{ url_for('static',filename='lib/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/message.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/init.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/preview.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static',filename='lib/table.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='upload/css/upload.css') }}">
+
+
+</head>
+<body>
+<!--PREVIEW-->
+<div class="preview invisible">
+    <button class="closePreview">×</button>
+    <div class="tableBox">
+        <table class="table">
+            <thead class="thead">
+            <tr class="head">
+                <th class="experimenterHead">主试</th>
+                <th class="participantHead">被试</th>
+                <th class="studentID">被试学号</th>
+                <th class="timeHead">实验时间</th>
+                <th class="locationHead">实验地点</th>
+                <th class="experimentHead">实验名称</th>
+                <th class="material">实验材料</th>
+                <th class="fee">被试费</th>
+                <th class="mentor">导师</th>
+            </tr>
+            </thead>
+            <tbody class="resultBody">
+            <tr>
+                <td class="experimenterHead">XXX</td>
+                <td class="participantHead">XXX</td>
+                <td class="studentID">XXX</td>
+                <td class="timeHead">2023.01.01</td>
+                <td class="locationHead">XXX</td>
+                <td class="experimentHead">XXX</td>
+                <td class="material">XXX</td>
+                <td class="fee">XXX</td>
+                <td class="mentor">导师</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--END PREVIEW-->
+<!--NAV-->
+<div class="nav">
+    <div class="title">上传数据</div>
+    <div class="desktop-links">
+        <a href="/interface/experimenterCenter.html" class="navLink">个人</a>
+        <a href="/releasedInformation" class="navLink">招募</a>
+        <a href="/logout" class="navLink danger">登出</a>
+    </div>
+    <button class="unfold">
+        <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><path d="M512 714.666667c-8.533333 0-17.066667-2.133333-23.466667-8.533334l-341.333333-341.333333c-12.8-12.8-12.8-32 0-44.8 12.8-12.8 32-12.8 44.8 0l320 317.866667 317.866667-320c12.8-12.8 32-12.8 44.8 0 12.8 12.8 12.8 32 0 44.8L533.333333 704c-4.266667 8.533333-12.8 10.666667-21.333333 10.666667z" fill="#333333"></path></svg>
+    </button>
+</div>
+<div class="mobile-links">
+    <a href="/interface/experimenterCenter.html" class="navLink">个人</a>
+    <a href="/releasedInformation" class="navLink">招募</a>
+    <a href="/logout" class="navLink danger">登出</a>
+</div>
+<!--END NAV-->
+<div class="container">
+    <div class="container-wrap">
+        <form method="post" enctype="multipart/form-data" action="/upload" class="form" id="form">
+            <div class="dataInput">
+                <label for="file" class="label">
+                    选择文件
+                </label>
+                <input id="file" name="file" type="file" class="input"/>
+            </div>
+        </form>
+        <div class="description">
+
+            <div id="currentFile" class="text">当前文件：</div>
+            <div class="text">
+                <button class="submit button">上传</button>
+                <button class="previewButton button">预览</button>
+            </div>
+            <div class="text">-</div>
+            <strong class="text">说明：</strong>
+            <div class="text">请确保上传的文件格式为xlsx, 内容格式如下：</div>
+            <strong class="text">请注意时间的格式</strong>
+            <div class="tableBox">
+                <table class="table">
+                    <thead class="thead">
+                    <tr class="head">
+                        <th class="experimenterHead">主试</th>
+                        <th class="participantHead">被试</th>
+                        <th class="studentID">被试学号</th>
+                        <th class="timeHead">实验时间</th>
+                        <th class="locationHead">实验地点</th>
+                        <th class="experimentHead">实验名称</th>
+                        <th class="material">实验材料</th>
+                        <th class="fee">被试费</th>
+                        <th class="mentor">导师</th>
+                    </tr>
+                    </thead>
+                    <tbody class="resultBody">
+                        <tr>
+                            <td class="experimenterHead">XXX</td>
+                            <td class="participantHead">XXX</td>
+                            <td class="studentID">XXX</td>
+                            <td class="timeHead">2023-01-01</td>
+                            <td class="locationHead">XXX</td>
+                            <td class="experimentHead">XXX</td>
+                            <td class="material">XXX</td>
+                            <td class="fee">XXX</td>
+                            <td class="mentor">XXX</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="tooltip disabled">输入完成后回车键查询</div>-->
+
+<div class="messageBox invisible">
+    <div class="message"></div>
+</div>
+
+<script src="{{ url_for('static',filename='lib/js.cookie.min.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/xlsx.full.min.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/header.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/message.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/preview.js') }}"></script>
+<script src="{{ url_for('static',filename='upload/js/upload.js') }}"></script>
+
+</body>
+</html>

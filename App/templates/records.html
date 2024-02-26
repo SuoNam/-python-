@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>查询下载</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/message.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/init.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='records/css/records.css') }}">
+
+</head>
+<body>
+<!--NAV-->
+<div class="nav">
+    <div class="title">查询下载</div>
+    <div class="desktop-links">
+        <a href="/interface/experimenterCenter.html" class="navLink">个人</a>
+        <a href="/releasedInformation" class="navLink">招募</a>
+        <a href="/logout" class="navLink danger">登出</a>
+    </div>
+    <button class="unfold">
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><path d="M512 714.666667c-8.533333 0-17.066667-2.133333-23.466667-8.533334l-341.333333-341.333333c-12.8-12.8-12.8-32 0-44.8 12.8-12.8 32-12.8 44.8 0l320 317.866667 317.866667-320c12.8-12.8 32-12.8 44.8 0 12.8 12.8 12.8 32 0 44.8L533.333333 704c-4.266667 8.533333-12.8 10.666667-21.333333 10.666667z" fill="#333333"></path></svg>
+    </button>
+</div>
+<div class="mobile-links">
+    <a href="/interface/experimenterCenter.html" class="navLink">个人</a>
+    <a href="/releasedInformation" class="navLink">招募</a>
+    <a href="/logout" class="navLink danger">登出</a>
+</div>
+<!--END NAV-->
+<div class="container">
+    <div class="queryPanel">
+        <div class="date query">
+            <div class="dataSelector">
+                <label for="startDate">起始日期</label>
+                <input value="2024-01-01" type="date" id="startDate">
+            </div>
+            <div class="dataSelector">
+                <label for="endDate">截止日期</label>
+                <input value="2028-01-01" type="date" id="endDate">
+            </div>
+        </div>
+        <div class="operationButton filterButton">
+            <label>
+                <input type="checkbox" class="filter" value="查询">查询
+            </label>
+        </div>
+        <div class="operationButton exportButton">
+            <button class="export">导出</button>
+        </div>
+    </div>
+    <div class="tableBox">
+
+        <div class="loading disabled">
+            <svg class="icon disabled" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><path d="M270.4 214.4C336 160 420 128 512 128c212 0 384 172 384 384h64c0-247.2-200.8-448-448-448-107.2 0-205.6 37.6-282.4 100l40.8 50.4z"></path></svg>
+        </div>
+        <table class="table">
+            <thead class="thead">
+            <tr class="head">
+                <th class="experimenter">主试</th>
+                <th class="participant">被试</th>
+                <th class="id">被试学号</th>
+                <th class="time">实验时间</th>
+                <th class="location">实验地点</th>
+                <th class="experiment">实验名称</th>
+                <th class="material">实验材料</th>
+                <th class="fee">被试费</th>
+                <th class="mentor">导师</th>
+            </tr>
+            </thead>
+            <tbody class="resultBody">
+
+            </tbody>
+        </table>
+
+        <div class="pageBox">
+            <div class="pageBlock lastPage">
+                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z"></path></svg>
+            </div>
+            <div class="pageBlock lastGroup">
+                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><path d="M192 512m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"></path><path d="M512 512m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"></path><path d="M832 512m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"></path></svg>
+            </div>
+            <div page=1 class="pageBlock page current pageNum">1</div>
+            <div page=2 class="pageBlock page pageNum">2</div>
+            <div page=3 class="pageBlock page pageNum">3</div>
+            <div page=4 class="pageBlock page pageNum">4</div>
+            <div page=5 class="pageBlock page pageNum">5</div>
+            <div class="pageBlock nextGroup">
+                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><path d="M192 512m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"></path><path d="M512 512m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"></path><path d="M832 512m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"></path></svg>
+            </div>
+            <div class="pageBlock nextPage">
+                <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><path d="M731.733333 480l-384-341.333333c-17.066667-14.933333-44.8-14.933333-59.733333 4.266666-14.933333 17.066667-14.933333 44.8 4.266667 59.733334L640 512 292.266667 821.333333c-17.066667 14.933333-19.2 42.666667-4.266667 59.733334 8.533333 8.533333 19.2 14.933333 32 14.933333 10.666667 0 19.2-4.266667 27.733333-10.666667l384-341.333333c8.533333-8.533333 14.933333-19.2 14.933334-32s-4.266667-23.466667-14.933334-32z"></path></svg>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tooltip disabled"></div>
+<div class="messageBox invisible">
+    <div class="message"></div>
+</div>
+
+<script src="{{ url_for('static',filename='lib/axios.min.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/js.cookie.min.js') }}"></script>
+<script lang="javascript" src="{{ url_for('static',filename='lib/xlsx.full.min.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/header.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/message.js') }}"></script>
+<script src="{{ url_for('static',filename='dev/table.js') }}"></script>
+<script src="{{ url_for('static',filename='dev/yu_tableUtils_experiment.js') }}"></script>
+<script src="{{ url_for('static',filename='records/js/recordsV2.js') }}"></script>
+
+</body>
+</html>

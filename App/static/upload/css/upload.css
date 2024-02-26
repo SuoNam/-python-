@@ -1,0 +1,75 @@
+.container {
+    position: relative;
+    margin-top: 6rem;
+    width: 100vw;
+    display: grid;
+}
+
+.container-wrap {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tooltip {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    font-size: 1rem;
+    color: #909090;
+    padding: 1.25rem;
+}
+.tooltip.disabled {
+    display: none;
+}
+
+.dataInput.invisible {
+    display:none;
+}
+
+.dataInput .label {
+    font-size: 1rem;
+    cursor: pointer;
+    border: 0.0625rem solid #909090;
+    padding: 0.9375rem 1.25rem;
+    border-radius: 0.5rem;
+    transition: all .2s;
+}
+
+.dataInput .label:hover, button.submit:hover {
+    border-color: #6767ff;
+    color: #6767ff;
+}
+
+.dataInput input.input {
+    display: none;
+}
+
+.description {
+    margin-top: 6.25rem;
+    padding: 1.25rem;
+    border: 0.0625rem solid #909090;
+    border-radius: 0.25rem;
+}
+
+.description .text {
+    font-size: 1rem;
+    margin: 0.3125rem 0;
+}
+
+.text .button {
+    cursor: pointer;
+    outline: none;
+    border: 0.0625rem solid #909090;
+    border-radius: 0.25rem;
+    padding: 0.3125rem;
+    background-color: #fff;
+    transition: all .2s;
+}
+
+.preview .tableBox {
+    max-height: calc((100vh - 4rem) * 0.8);
+}
+.preview .tableBox .table {
+    height: 100%;
+}

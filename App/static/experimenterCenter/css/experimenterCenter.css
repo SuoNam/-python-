@@ -1,0 +1,40 @@
+.container {
+    position: relative;
+    margin: 4rem auto 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.linkList {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.linkList .link {
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0.3125rem 0;
+    border-radius: 0.25rem;
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: all .25s;
+}
+.linkList .link.default {
+    border: 0.0625rem solid #909090;
+    color: #000;
+}
+.linkList .link.default:hover, .linkList .link.default:focus {
+    color: #6767ff;
+    border-color: #6767ff;
+}
+.linkList .link.danger {
+    border: 0.0625rem solid #ff8989;
+    color: #ff8989;
+}
+.linkList .link.danger:hover, .linkList .link.danger:focus {
+    background-color: #ffd9d9;
+    color: #ff2626;
+}

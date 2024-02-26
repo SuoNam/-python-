@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>实验查询</title>
+
+    <meta name="viewport" content="width=device-width，initial-scale=l，maximum-scale=1">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='new/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='modules/message/message.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='new/css/query.css') }}">
+    
+</head>
+<body>
+    <div class="nav">
+        <div class="title">实验查询</div>
+    </div>
+    <form action="http://182.92.240.148:2845/" class="container flex">
+        <div class="searchBar flex">
+            <label for="studentID"></label> <!-- 没啥用 -->
+            <input name="id" id="studentID" placeholder="学号" type="text" class="searchInput">
+        </div>
+    </form>
+    <div class="tooltip">输入完成后回车键查询</div>
+</body>
+</html>

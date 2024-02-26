@@ -1,0 +1,92 @@
+.tableBox {
+    position: relative;
+    overflow: auto;
+    max-width: 90vw;
+    margin: 0 auto;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.25rem;
+}
+
+.tableBox .table {
+    width: 100%;
+    padding: 0.625rem 0;
+    font-size: 1rem;
+    border-collapse: collapse;
+    border: none;
+}
+
+.tableBox .table td {
+    padding: 0.625rem 1.25rem;
+    white-space: nowrap;
+    border: 0.0625rem solid #ddd;
+    text-align: center;
+}
+
+.tableBox .table th {
+    padding: 0.625rem 1.25rem;
+    border-right: 0.0625rem solid #ddd;
+    background-color: #f2f3f5;
+}
+
+.tableBox .table td:first-child {
+    border-left: none;
+}
+
+.tableBox .table td:last-child, .tableBox .table th:last-child {
+    border-right: none;
+}
+
+.tableBox .table tr:first-child {
+    border-top: none;
+}
+
+.tableBox .table tr:last-child {
+    border-bottom: none;
+}
+
+.tableBox .loading .icon.disabled {
+    display: none;
+}
+
+tr td {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+tr.content {
+    background-color: #fff;
+}
+tr.content:hover {
+    background-color: #f7f8fa;
+}
+
+.tableBox .loading {
+    overflow-y: hidden;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, .5);
+    z-index: 2;
+    transition: all .2s;
+}
+
+.tableBox .loading.disabled {
+    background-color: rgba(255, 255, 255, 0);
+    display: none;
+}
+
+.tableBox .loading .icon {
+    fill: #777;
+    animation: 1.5s linear 0s infinite normal circle;
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+.tableBox .loading .icon.disabled {
+    display: none;
+}

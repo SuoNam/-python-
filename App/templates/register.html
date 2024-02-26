@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/message.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/init.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='lib/preview.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='register/css/register.css') }}">
+
+</head>
+<body>
+<!--NAV-->
+<div class="nav">
+    <div class="title">注册</div>
+    <div class="desktop-links">
+        <a href="/releasedInformation" class="navLink">招募</a>
+    </div>
+    <button class="unfold">
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><path d="M512 714.666667c-8.533333 0-17.066667-2.133333-23.466667-8.533334l-341.333333-341.333333c-12.8-12.8-12.8-32 0-44.8 12.8-12.8 32-12.8 44.8 0l320 317.866667 317.866667-320c12.8-12.8 32-12.8 44.8 0 12.8 12.8 12.8 32 0 44.8L533.333333 704c-4.266667 8.533333-12.8 10.666667-21.333333 10.666667z" fill="#333333"></path></svg>
+    </button>
+</div>
+<div class="mobile-links">
+    <a href="/releasedInformation" class="navLink">招募</a>
+</div>
+<!--END NAV-->
+<div class="container">
+    <div class="container-wrap">
+        <form method="post" action="/register" class="form" id="form">
+            <div class="dataInput">
+                <label class="textLabel" for="name">姓名：</label>
+                <input id="name" name="name" type="text" class="input textInput">
+            </div>
+            <div class="dataInput">
+                <label class="textLabel" for="id">学号：</label>
+                <input id="id" name="id" type="text" class="input textInput">
+            </div>
+            <div class="dataInput">
+                <label class="textLabel" for="password">密码：</label>
+                <input id="password" name="password" type="password" class="input textInput">
+            </div>
+            <div class="dataInput">
+                <label class="textLabel" for="phone">手机号：</label>
+                <input id="phone" name="phone" type="text" class="input textInput">
+            </div>
+            <div class="dataInput">
+                <label class="textLabel" for="group">课题组：</label>
+                <input id="group" name="group" type="text" class="input textInput">
+            </div>
+            <div class="dataInput">
+                <label class="textLabel" for="mentor">导师名：</label>
+                <input id="mentor" name="mentor" type="text" class="input textInput">
+            </div>
+            <button class="submit button disabled">提交</button>
+        </form>
+    </div>
+</div>
+<!--<div class="tooltip disabled">输入完成后回车键查询</div>-->
+
+<div class="messageBox invisible">
+    <div class="message"></div>
+</div>
+
+<script src="{{ url_for('static',filename='lib/crypto-js.min.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/js.cookie.min.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/header.js') }}"></script>
+<script src="{{ url_for('static',filename='lib/message.js') }}"></script>
+<script src="{{ url_for('static',filename='register/js/register.js') }}"></script>
+
+</body>
+</html>

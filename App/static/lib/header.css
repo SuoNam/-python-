@@ -1,0 +1,82 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4rem;
+    background-color: #f2f3f5;
+    border-bottom: 0.0625rem solid #ddd;
+    z-index: 10;
+}
+
+.nav .title {
+    display: inline-block;
+    line-height: 4rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 0 1.25rem;
+}
+
+.nav .desktop-links {
+    float: right;
+}
+
+.navLink {
+    text-decoration: none;
+    line-height: 4rem;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.nav .desktop-links .navLink {
+    padding: 0 0.625rem;
+    margin: 0 0.625rem;
+}
+
+.navLink.danger {
+    color: #ff5b5b;
+}
+
+.nav button.unfold {
+    display: none;
+    font-size: 1.25rem;
+    line-height: 4rem;
+    outline: none;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+    right: 1rem;
+    top: 0;
+}
+.nav button.unfold .icon {
+    width: 2rem;
+    height: 2rem;
+    margin: 1rem;
+}
+
+.mobile-links {
+    display: none;
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.mobile-links .navLink {
+    display: block;
+    text-align: center;
+    background-color: #f2f3f5;
+}
+
+@media (max-aspect-ratio: 1/1) {
+    .nav button.unfold {
+        display: block;
+    }
+    .mobile-links.active {
+        display: block;
+    }
+    .desktop-links {
+        display: none;
+    }
+}
